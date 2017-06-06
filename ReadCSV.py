@@ -3,6 +3,8 @@ This code firstly loads images in the form of feature values from a text file, w
 feature values has to fit the loading of this code perfectly in order to work.
 Sci kit learn machine learning methods are used to train a model with the training data.
 At last the model is used to make predictions on the test data, which then ouputs the TP TN FP FN
+
+Any changes
 """
 
 from sklearn.datasets import make_hastie_10_2
