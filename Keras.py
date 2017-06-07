@@ -47,11 +47,19 @@ while (True):
     kp1, des1 = orb.detectAndCompute(frame, None)
     #   Classify frame
 
+    # Iterate through des1 array and extract only feature values without type into seperate array x
+    for i in temp_array:
+        #textFile.write("%s " % "FileNameNeg")
+        for j in i:
+            if j[0] == j[0]:
+                #textFile.write("%s " % (j[0]))
+                temp_array.append(j[0])
+            else:
+                print 'Something went wrong NEG'
 
 
 
-
-
+    # Make prediction on the des1 feature values from the new array x
     if len(temp_array) == 500:
         print temp_array
         print len(temp_array)
