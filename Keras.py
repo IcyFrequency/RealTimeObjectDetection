@@ -48,14 +48,6 @@ while (True):
     #   Classify frame
 
 
-    for i in temp_array:
-        #textFile.write("%s " % "FileNameNeg")
-        for j in i:
-            if j[0] == j[0]:
-                #textFile.write("%s " % (j[0]))
-                temp_array.append(j[0])
-            else:
-                print 'Something went wrong NEG'
 
 
 
