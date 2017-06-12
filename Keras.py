@@ -37,18 +37,25 @@ if (cap.isOpened()):
 else:
     cap.open()
 temp_array = []
+
 while (True):
     #   Read frame
     ret, original = cap.read()
     #   Resize frame
-    frame = cv2.resize(original, (1920, 1080))
+    frame = cv2.resize(original, (1280, 720))
     #   Extract features from frame
     #gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     kp1, des1 = orb.detectAndCompute(frame, None)
-    #   Classify frame
 
+    print des1
+    model.predict(des1)
+
+
+
+    #   Classify frame
+    """
     # Iterate through des1 array and extract only feature values without type into seperate array x
-    for i in temp_array:
+    for i in des1:
         #textFile.write("%s " % "FileNameNeg")
         for j in i:
             if j[0] == j[0]:
@@ -58,13 +65,12 @@ while (True):
                 print 'Something went wrong NEG'
 
 
-
     # Make prediction on the des1 feature values from the new array x
     if len(temp_array) == 500:
         print temp_array
         print len(temp_array)
         model.predict(temp_array)
-
+    """
     #   Print out feature values
     #print array(gray_image)
 
