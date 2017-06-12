@@ -37,6 +37,7 @@ if (cap.isOpened()):
 else:
     cap.open()
 temp_array = []
+listofzeros = [0] * 500
 
 while (True):
     #   Read frame
@@ -47,8 +48,14 @@ while (True):
     #gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     kp1, des1 = orb.detectAndCompute(frame, None)
 
+    # Tried making a datapoint that match trained model
     print des1
-    model.predict(des1)
+    f_value = des1[0]
+    print f_value
+    print len(des1)
+    print listofzeros
+    print len(listofzeros)
+    model.predict(listofzeros)
 
 
 
