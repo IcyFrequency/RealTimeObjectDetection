@@ -1,5 +1,5 @@
 from PIL import Image
-import pickle
+
 import threading
 from keras.preprocessing import image as image_utils
 import argparse
@@ -11,11 +11,16 @@ import sys
 from pylab import *
 from PIL import Image
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+import cPickle
 
 frame = None
-model_path = '/Users/pedramsherafat/PycharmProjects/RealTimeObjectDetection/Models/Classifier_KNeighborsClassifier.pkl'
+model_path = '/Users/pedramsherafat/PycharmProjects/RealTimeObjectDetection/Models/Classifier_RandomForestClassifier.pkl'
 
-model = pickle.load(open(model_path, 'rb'))
+clf = RandomForestClassifier(n_estimators=1, max_depth=None, random_state=0, max_features='auto', max_leaf_nodes=None)
+s = cPickle.dumps(clf)
+clf2 = cPickle.loads(s)
+clf2 = cPickle.load(open(model_path, 'rb'))
 
 orb = cv2.ORB_create()
 
@@ -49,13 +54,14 @@ while (True):
     kp1, des1 = orb.detectAndCompute(frame, None)
 
     # Tried making a datapoint that match trained model
-    print des1
-    f_value = des1[0]
-    print f_value
-    print len(des1)
+    #print des1
+    #f_value = des1[0]
+    #print f_value
+    #print len(des1)
     print listofzeros
     print len(listofzeros)
-    model.predict(listofzeros)
+
+    .predict(listofzeros)
 
 
 
